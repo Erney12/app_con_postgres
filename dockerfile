@@ -1,17 +1,17 @@
 FROM python:3.9-slim-buster
-#FROM python:3.9-alpine
-
-
 
 WORKDIR /code
 
-#RUN apk add --no-cache gcc musl-dev linux-headers
-
-COPY requirements.txt requirements.txt
+COPY requirements.txt .
 
 RUN apt-get update && apt-get install -y freetds-dev build-essential
 
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+#COPY crear_tabla.py .
+#
+#RUN chmod +x crear_tabla.py
+#RUN ./crear_tabla.py
 
 COPY . .
 

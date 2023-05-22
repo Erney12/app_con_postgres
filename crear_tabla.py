@@ -1,26 +1,18 @@
+#!/usr/bin/env python
+
 from sqlalchemy import create_engine, MetaData, Table, select
 from sqlalchemy.orm import sessionmaker
 import urllib.parse
-
-server_name = 'servidorpostgresql.database.windows.net'
-database_name = 'erney'
-username = 'erneypuetate'
-password = '@Adolfo2008'
-encoded_password = urllib.parse.quote_plus(password)
-
-# Crear el URI de conexión
-#url = f"mssql+pymssql://{username}:{encoded_password}@{server_name}/{database_name}"
 from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String
 
-# Crea una instancia del motor de SQLAlchemy
-server_name = 'servidorpostgresql.database.windows.net'
+
 database_name = 'erney'
 username = 'erneypuetate'
-password = '@Adolfo2008'
+password = 'Adolfo2008'
 encoded_password = urllib.parse.quote_plus(password)
 
 # Crear el URI de conexión
-uri = f"mssql+pymssql://{username}:{encoded_password}@{server_name}/{database_name}"
+uri = f"postgresql://{username}:{password}@172.17.0.2/{database_name}"
 engine = create_engine(uri)
 # Define la tabla
 metadata = MetaData(bind=engine)
