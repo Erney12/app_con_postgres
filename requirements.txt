@@ -1,2 +1,7 @@
 fastapi
 uvicorn
+urllib
+sqlalchemy
+typing
+pydantic
+passlib
